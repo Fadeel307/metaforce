@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 5, 5, 7;
+  --background-end-rgb: 3, 3, 4;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+  overflow-x: hidden;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(10, 10, 15, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00f3ff, #9d00ff);
+  border-radius: 3px;
+}
+
+/* Cyberpunk Grid Background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Neon Text */
+.neon-text {
+  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+}
+
+.neon-pink {
+  text-shadow: 0 0 10px #ff00f5, 0 0 20px #ff00f5;
+}
+
+.neon-purple {
+  text-shadow: 0 0 10px #9d00ff, 0 0 20px #9d00ff;
+}
+
+/* Scanline Effect */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 243, 255, 0.05) 0.5%,
+    transparent 1%
+  );
+  pointer-events: none;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: #ff00f5;
+  animation: glitch-animation 0.8s infinite;
+}
+
+.glitch::after {
+  color: #00f3ff;
+  animation: glitch-animation 1.3s infinite;
+}
+
+@keyframes glitch-animation {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+} 
